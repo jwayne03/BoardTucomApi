@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sun.el.stream.Optional;
-import com.wayne.dao.DAO;
+import com.wayne.dao.BoardGameDAO;
 import com.wayne.model.BoardGame;
 
 import antlr.collections.List;
@@ -21,23 +21,23 @@ import antlr.collections.List;
 public class BoardGameApi {
 
 	@Autowired
-	private DAO dao;
+	private BoardGameDAO dao;
 	
 	@PostMapping("/save")
 	public void saveBoardGame(@RequestBody BoardGame boardGame) {
 		this.dao.save(boardGame);
 	}
 	
-	@GetMapping("/{id}")
-	public Optional<BoardGame> getBoardGameById(@PathVariable("id") Integer id) {
-		return this.dao.findById(id);
-	}
+	//@GetMapping("/{id}")
+	//public Optional<BoardGame> getBoardGameById(@PathVariable("id") Integer id) {
+	//	return this.dao.findById(id);
+	//}
 	
-	@GetMapping("")
-	public List<DAO> updateBoardGameById(@RequestParam @PathVariable("id") Integer id) {
+	//@GetMapping("")
+	//public List<DAO> updateBoardGameById(@RequestParam @PathVariable("id") Integer id) {
 		
 		
-	}
+	//}
 	
-	@DeleteMapping("/delete/{id}")
+	//@DeleteMapping("/delete/{id}")
 }
