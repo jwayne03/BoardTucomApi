@@ -24,16 +24,6 @@ public class BoardGame {
 
 	}
 
-	public BoardGame(int id, String name, String editorial, String description, String numberOfPlayers, String type) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.editorial = editorial;
-		this.description = description;
-		this.numberOfPlayers = numberOfPlayers;
-		this.type = type;
-	}
-
 	public int getId() {
 		return id;
 	}

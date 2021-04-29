@@ -14,7 +14,7 @@ public class RoleGame {
 	@Column
 	private String editorial;
 	@Column
-	private String description;
+	private int level;
 
 	public RoleGame() {
 
@@ -44,17 +44,17 @@ public class RoleGame {
 		this.editorial = editorial;
 	}
 
-	public String getDescription() {
-		return description;
+	public int getLevel() {
+		return level;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setLevel(int level) {
+		this.level = level;
 	}
 
 	@Override
 	public String toString() {
-		return "RoleGame [id=" + id + ", name=" + name + ", editorial=" + editorial + ", description=" + description
+		return "RoleGame [id=" + id + ", name=" + name + ", editorial=" + editorial + ", level=" + level
 				+ "]";
 	}
 

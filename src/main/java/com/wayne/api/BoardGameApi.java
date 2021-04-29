@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,23 +22,25 @@ import antlr.collections.List;
 public class BoardGameApi {
 
 	@Autowired
-	private BoardGameDAO dao;
+	private BoardGameDAO boardGameDAO;
 	
 	@PostMapping("/save")
 	public void saveBoardGame(@RequestBody BoardGame boardGame) {
-		this.dao.save(boardGame);
+		this.boardGameDAO.save(boardGame);
 	}
 	
-	//@GetMapping("/{id}")
-	//public Optional<BoardGame> getBoardGameById(@PathVariable("id") Integer id) {
-	//	return this.dao.findById(id);
-	//}
+	@GetMapping("/{id}")
+	public java.util.Optional<BoardGame> getBoardGameById(@PathVariable("id") Integer id) {
+		return this.boardGameDAO.findById(id);
+	}
 	
-	//@GetMapping("")
-	//public List<DAO> updateBoardGameById(@RequestParam @PathVariable("id") Integer id) {
-		
-		
-	//}
+	@PutMapping("")
+	public java.util.List<BoardGame> updateBoardGameById(@RequestParam @PathVariable("id") Integer id) {
+		return this.boardGameDAO.findAll();
+	}
 	
-	//@DeleteMapping("/delete/{id}")
+	@DeleteMapping("/delete/{id}")
+	public void removeById(@PathVariable("id") Integer id) {
+		this.boardGameDAO.deleteById(id);
+	}
 }
