@@ -14,32 +14,60 @@ import com.wayne.dao.CardGameDAO;
 import com.wayne.dao.MerchandisingDAO;
 import com.wayne.model.CardGame;
 import com.wayne.model.Merchandising;
+import com.wayne.service.GeneralServices;
 
 @RestController
 @RequestMapping("Merchandising")
 public class MerchandisingApi {
-	
+
 	@Autowired
 	private MerchandisingDAO merchandisingDAO;
-	
+	@Autowired
+	private GeneralServices generalServices;
+
+	/**
+	 * METHOD POST Calls to the method of service to make the request
+	 * 
+	 * @param merchandising
+	 */
 	@PostMapping("/save")
 	public void saveMerchandising(@RequestBody Merchandising merchandising) {
-		this.merchandisingDAO.save(merchandising);
+		this.generalServices.saveMerchandising(merchandising);
 	}
-	
+
+	/**
+	 * METHOD GET Calls to the method of service to make the request and get a
+	 * Merchandising by ID
+	 * 
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("/{id}")
 	public java.util.Optional<Merchandising> getMerchandisingByID(@PathVariable("id") Integer id) {
-		return this.merchandisingDAO.findById(id);
+		return this.generalServices.getMerchandisingByID(id);
 	}
-	
+
+	/**
+	 * METHOD PUT (UPDATE BY ID) Calls to the method of service to make the request
+	 * and updates a Merchandising by ID
+	 * 
+	 * @param id
+	 * @return
+	 */
 	@PutMapping("")
 	public java.util.List<Merchandising> updateMerchandisingById(@RequestParam @PathVariable("id") Integer id) {
-		return this.merchandisingDAO.findAll();
+		return this.generalServices.updateMerchandisingById(id);
 	}
-	
+
+	/**
+	 * METHOD GET Calls to the method of service to make the request and get all
+	 * merchandising
+	 * 
+	 * @return
+	 */
 	@GetMapping("")
 	public java.util.List<Merchandising> getAllMerchandising() {
-		return this.merchandisingDAO.findAll();
+		return this.generalServices.getAllMerchandising();
 	}
 
 }

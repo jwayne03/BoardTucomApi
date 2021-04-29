@@ -11,11 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sun.el.stream.Optional;
 import com.wayne.dao.BoardGameDAO;
 import com.wayne.model.BoardGame;
-
-import antlr.collections.List;
+import com.wayne.service.GeneralServices;
 
 @RestController
 @RequestMapping("BoardGame")
@@ -23,24 +21,50 @@ public class BoardGameApi {
 
 	@Autowired
 	private BoardGameDAO boardGameDAO;
-	
+	@Autowired
+	private GeneralServices generalServices;
+
+	/**
+	 * METHOD POST Calls to the method of service to make the request and creates a new BoardGame
+	 * 
+	 * @param boardGame
+	 */
 	@PostMapping("/save")
 	public void saveBoardGame(@RequestBody BoardGame boardGame) {
-		this.boardGameDAO.save(boardGame);
+		this.generalServices.saveAllBoardGame(boardGame);
 	}
-	
+
+	/**
+	 * METHOD GET BY ID Calls to the method of service and gets the BoardGame by ID
+	 * 
+	 * @param id
+	 * @return BoardGame
+	 */
 	@GetMapping("/{id}")
 	public java.util.Optional<BoardGame> getBoardGameById(@PathVariable("id") Integer id) {
-		return this.boardGameDAO.findById(id);
+		return this.generalServices.getBoardGameById(id);
 	}
-	
+
+	/**
+	 * METHOD PUT (UPDATE BY ID) Calls to the method of service and update boardgame
+	 * by ID
+	 * 
+	 * @param id
+	 */
 	@PutMapping("")
-	public java.util.List<BoardGame> updateBoardGameById(@RequestParam @PathVariable("id") Integer id) {
-		return this.boardGameDAO.findAll();
+	public void updateBoardGameById(@RequestParam @PathVariable("id") Integer id) {
+		this.generalServices.updateBoardGameById(id);
 	}
-	
+
+	/**
+	 * METHOD DELETE BY ID Calls to the method of service and removes an element by
+	 * ID
+	 * 
+	 * @param id
+	 */
 	@DeleteMapping("/delete/{id}")
 	public void removeById(@PathVariable("id") Integer id) {
-		this.boardGameDAO.deleteById(id);
+		this.generalServices.removeById(id);
 	}
+
 }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.wayne.dao.CardGameDAO;
 import com.wayne.model.CardGame;
+import com.wayne.service.GeneralServices;
 
 @RestController
 @RequestMapping("CardGame")
@@ -20,25 +21,53 @@ public class CardGameApi {
 
 	@Autowired
 	private CardGameDAO cardGameDAO;
+	@Autowired
+	private GeneralServices generalServices;
 
+	/**
+	 * METHOD POST Calls to the method of service to make the request and creates a
+	 * new Merchandising
+	 * 
+	 * @param cardGame
+	 */
 	@PostMapping("/save")
 	public void saveMerchandising(@RequestBody CardGame cardGame) {
-		this.cardGameDAO.save(cardGame);
+		this.generalServices.saveMerchandising(cardGame);
 	}
 
+	/**
+	 * METHOD GET Calls to the method of service to make the request and get a
+	 * CardGame by ID
+	 * 
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("/{id}")
 	public java.util.Optional<CardGame> getCardGameByID(@PathVariable("id") Integer id) {
-		return this.cardGameDAO.findById(id);
+		return this.generalServices.getCardGameByID(id);
 	}
 
+	/**
+	 * METHOD PUT Calls to the method of service to make the request and updates a
+	 * CardGame by ID
+	 * 
+	 * @param id
+	 * @return
+	 */
 	@PutMapping("")
 	public java.util.List<CardGame> updateCardGameById(@RequestParam @PathVariable("id") Integer id) {
-		return this.cardGameDAO.findAll();
+		return this.generalServices.updateCardGameById(id);
 	}
 
+	/**
+	 * METHOD GET Calls to the method of service to make the request and get all
+	 * CardGame
+	 * 
+	 * @return
+	 */
 	@GetMapping("")
 	public java.util.List<CardGame> getAllCardGame() {
-		return this.cardGameDAO.findAll();
+		return this.generalServices.getAllCardGame();
 	}
 
 }
