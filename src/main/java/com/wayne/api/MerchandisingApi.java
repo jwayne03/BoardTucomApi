@@ -14,16 +14,14 @@ import com.wayne.dao.CardGameDAO;
 import com.wayne.dao.MerchandisingDAO;
 import com.wayne.model.CardGame;
 import com.wayne.model.Merchandising;
-import com.wayne.service.GeneralServices;
+import com.wayne.service.ServiceManager;
 
 @RestController
 @RequestMapping("Merchandising")
 public class MerchandisingApi {
 
 	@Autowired
-	private MerchandisingDAO merchandisingDAO;
-	@Autowired
-	private GeneralServices generalServices;
+	private ServiceManager generalServices;
 
 	/**
 	 * METHOD POST Calls to the method of service to make the request

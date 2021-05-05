@@ -13,16 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.wayne.dao.CardGameDAO;
 import com.wayne.model.CardGame;
-import com.wayne.service.GeneralServices;
+import com.wayne.service.ServiceManager;
 
 @RestController
 @RequestMapping("CardGame")
 public class CardGameApi {
 
 	@Autowired
-	private CardGameDAO cardGameDAO;
-	@Autowired
-	private GeneralServices generalServices;
+	private ServiceManager generalServices;
 
 	/**
 	 * METHOD POST Calls to the method of service to make the request and creates a
@@ -31,8 +29,8 @@ public class CardGameApi {
 	 * @param cardGame
 	 */
 	@PostMapping("/save")
-	public void saveMerchandising(@RequestBody CardGame cardGame) {
-		this.generalServices.saveMerchandising(cardGame);
+	public void saveCardGame(@RequestBody CardGame cardGame) {
+		this.generalServices.saveCardGame(cardGame);
 	}
 
 	/**

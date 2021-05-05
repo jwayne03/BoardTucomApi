@@ -13,19 +13,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.wayne.dao.BoardGameDAO;
 import com.wayne.model.BoardGame;
-import com.wayne.service.GeneralServices;
+import com.wayne.service.ServiceManager;
 
 @RestController
 @RequestMapping("BoardGame")
 public class BoardGameApi {
 
 	@Autowired
-	private BoardGameDAO boardGameDAO;
-	@Autowired
-	private GeneralServices generalServices;
+	private ServiceManager generalServices;
 
 	/**
-	 * METHOD POST Calls to the method of service to make the request and creates a new BoardGame
+	 * METHOD POST Calls to the method of service to make the request and creates a
+	 * new BoardGame
 	 * 
 	 * @param boardGame
 	 */

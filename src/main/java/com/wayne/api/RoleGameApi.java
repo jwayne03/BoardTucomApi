@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wayne.model.RoleGame;
-import com.wayne.service.GeneralServices;
+import com.wayne.service.ServiceManager;
 
 @RestController
 @RequestMapping("RoleGame")
 public class RoleGameApi {
 
 	@Autowired
-	private GeneralServices generalServices;
+	private ServiceManager generalServices;
 
 	/**
 	 * METHOD POST Calls to the method of service to make the request and creates a
