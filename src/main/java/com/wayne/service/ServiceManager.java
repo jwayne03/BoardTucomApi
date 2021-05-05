@@ -34,9 +34,7 @@ public class ServiceManager {
 	 * 
 	 * @param boardGame
 	 */
-	public void saveAllBoardGame(BoardGame boardGame) {
-		boardGameDAO.save(boardGame);
-	}
+	public void saveAllBoardGame(BoardGame boardGame) { boardGameDAO.save(boardGame); }
 
 	/**
 	 * Get all Boardgame by ID, if there are no id, returns null

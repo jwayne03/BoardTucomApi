@@ -5,6 +5,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.wayne.model.BoardGame;
 import com.wayne.model.CardGame;
 
-public interface CardGameDAO extends JpaRepository<CardGame, Integer>{
+/**
+ * This interface makes the function to establish interractions with the
+ * database
+ * 
+ * @author johnwayne
+ */
+public interface CardGameDAO extends JpaRepository<CardGame, Integer> {
 
 }

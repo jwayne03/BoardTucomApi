@@ -20,9 +20,14 @@ public class BoardGame {
 	@Column
 	private String type;
 
+	/**
+	 * DEFAULT CONSTRUCTOR
+	 */
 	public BoardGame() {
 
 	}
+
+	// GETTERS & SETTERS
 
 	public int getId() {
 		return id;
