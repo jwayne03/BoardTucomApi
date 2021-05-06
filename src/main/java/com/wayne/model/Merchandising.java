@@ -16,10 +16,16 @@ public class Merchandising {
 	@Column
 	private String description;
 
+	
+	/**
+	 * DEFAULT CONSTRUCTOR
+	 */
 	public Merchandising() {
 
 	}
 
+	// GETTERS & SETTERS
+	
 	public int getId() {
 		return id;
 	}

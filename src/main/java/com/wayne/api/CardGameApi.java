@@ -52,7 +52,7 @@ public class CardGameApi {
 	 * @param id
 	 * @return
 	 */
-	@PutMapping("")
+	@PutMapping("/{id}")
 	public java.util.List<CardGame> updateCardGameById(@RequestParam @PathVariable("id") Integer id) {
 		return this.generalServices.updateCardGameById(id);
 	}

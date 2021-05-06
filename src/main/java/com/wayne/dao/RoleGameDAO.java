@@ -1,8 +1,9 @@
 package com.wayne.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
-import com.wayne.model.BoardGame;
 import com.wayne.model.RoleGame;
 
 /**
@@ -12,6 +13,14 @@ import com.wayne.model.RoleGame;
  * @author johnwayne
  *
  */
+
 public interface RoleGameDAO extends JpaRepository<RoleGame, Integer> {
 
+	/**
+	 * function that find rolegame by id and updates the editorial
+	 * 
+	 * @param id
+	 */
+	@Query(value = "update role_game set editorial=:editorial where id=:id", nativeQuery = true)
+	public void updateRoleGameById(@Param("id") Integer id);
 }

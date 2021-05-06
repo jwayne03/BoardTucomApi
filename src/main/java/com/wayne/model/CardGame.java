@@ -16,11 +16,16 @@ public class CardGame {
 	@Column
 	private String numberOfCards;
 	@Column
-	private String seasson;
+	private int seasson;
 
+	/**
+	 * DEFAULT CONSTRUCTOR
+	 */
 	public CardGame() {
 
 	}
+
+	// GETTERS & SETTERS
 
 	public int getId() {
 		return id;
@@ -54,11 +59,11 @@ public class CardGame {
 		this.numberOfCards = numberOfCards;
 	}
 
-	public String getSeasson() {
+	public int getSeasson() {
 		return seasson;
 	}
 
-	public void setSeasson(String seasson) {
+	public void setSeasson(int seasson) {
 		this.seasson = seasson;
 	}
 

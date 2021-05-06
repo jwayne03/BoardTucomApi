@@ -51,8 +51,8 @@ public class BoardGameApi {
 	 * @param id
 	 */
 	@PutMapping("")
-	public void updateBoardGameById(@RequestParam @PathVariable("id") Integer id) {
-		this.generalServices.updateBoardGameById(id);
+	public void updateBoardGameById(@RequestParam @PathVariable("id") Integer id, String type, String description) {
+		this.generalServices.updateBoardGameById(id, type, description);
 	}
 
 	/**

@@ -34,7 +34,9 @@ public class ServiceManager {
 	 * 
 	 * @param boardGame
 	 */
-	public void saveAllBoardGame(BoardGame boardGame) { boardGameDAO.save(boardGame); }
+	public void saveAllBoardGame(BoardGame boardGame) {
+		boardGameDAO.save(boardGame);
+	}
 
 	/**
 	 * Get all Boardgame by ID, if there are no id, returns null
@@ -55,14 +57,18 @@ public class ServiceManager {
 	 * 
 	 * @param id with @PathVariable to request to the user
 	 */
-	public void updateBoardGameById(@RequestParam @PathVariable("id") Integer id) { this.boardGameDAO.findById(id); }
+	public void updateBoardGameById(@RequestParam @PathVariable("id") Integer id, String type, String description) {
+		this.boardGameDAO.updateBoardGameById(type, description, id);
+	}
 
 	/**
 	 * Function to remove by id
 	 * 
 	 * @param id
 	 */
-	public void removeById(@PathVariable("id") Integer id) { this.boardGameDAO.deleteById(id); }
+	public void removeById(@PathVariable("id") Integer id) {
+		this.boardGameDAO.deleteById(id);
+	}
 
 	// CARDGAME
 
@@ -71,7 +77,9 @@ public class ServiceManager {
 	 * 
 	 * @param cardGame
 	 */
-	public void saveCardGame(@RequestBody CardGame cardGame) { this.cardGameDAO.save(cardGame); }
+	public void saveCardGame(@RequestBody CardGame cardGame) {
+		this.cardGameDAO.save(cardGame);
+	}
 
 	/**
 	 * Get cardgame by id
@@ -79,7 +87,9 @@ public class ServiceManager {
 	 * @param id
 	 * @return
 	 */
-	public java.util.Optional<CardGame> getCardGameByID(@PathVariable("id") Integer id) { return this.cardGameDAO.findById(id); }
+	public java.util.Optional<CardGame> getCardGameByID(@PathVariable("id") Integer id) {
+		return this.cardGameDAO.findById(id);
+	}
 
 	/**
 	 * Updates the cardgame by id
@@ -87,14 +97,18 @@ public class ServiceManager {
 	 * @param id
 	 * @return
 	 */
-	public java.util.List<CardGame> updateCardGameById(@RequestParam @PathVariable("id") Integer id) { return this.cardGameDAO.findAll(); }
+	public java.util.List<CardGame> updateCardGameById(@RequestParam @PathVariable("id") Integer id) {
+		return this.cardGameDAO.selectCardGameBySeason(id);
+	}
 
 	/**
 	 * Get all cardgame
 	 * 
 	 * @return
 	 */
-	public java.util.List<CardGame> getAllCardGame() { return this.cardGameDAO.findAll(); }
+	public java.util.List<CardGame> getAllCardGame() {
+		return this.cardGameDAO.findAll();
+	}
 
 	// MERCHANDISING
 
@@ -103,7 +117,9 @@ public class ServiceManager {
 	 * 
 	 * @param merchandising
 	 */
-	public void saveMerchandising(@RequestBody Merchandising merchandising) { this.merchandisingDAO.save(merchandising); }
+	public void saveMerchandising(@RequestBody Merchandising merchandising) {
+		this.merchandisingDAO.save(merchandising);
+	}
 
 	/**
 	 * Get merchandising by ID
@@ -111,7 +127,9 @@ public class ServiceManager {
 	 * @param id
 	 * @return
 	 */
-	public java.util.Optional<Merchandising> getMerchandisingByID(@PathVariable("id") Integer id) { return this.merchandisingDAO.findById(id); }
+	public java.util.Optional<Merchandising> getMerchandisingByID(@PathVariable("id") Integer id) {
+		return this.merchandisingDAO.findById(id);
+	}
 
 	/**
 	 * Update merchandising by ID
@@ -119,14 +137,18 @@ public class ServiceManager {
 	 * @param id
 	 * @return
 	 */
-	public java.util.List<Merchandising> updateMerchandisingById(@RequestParam @PathVariable("id") Integer id) { return this.merchandisingDAO.findAll(); }
+	public java.util.List<Merchandising> updateMerchandisingById(@RequestParam @PathVariable("id") Integer id) {
+		return this.merchandisingDAO.selectMerchandisingByType(id);
+	}
 
 	/**
 	 * Get all merchandising
 	 * 
 	 * @return
 	 */
-	public java.util.List<Merchandising> getAllMerchandising() { return this.merchandisingDAO.findAll(); }
+	public java.util.List<Merchandising> getAllMerchandising() {
+		return this.merchandisingDAO.findAll();
+	}
 
 	// ROLEGAME
 
@@ -135,7 +157,9 @@ public class ServiceManager {
 	 * 
 	 * @param roleGame
 	 */
-	public void saveRoleGame(@RequestBody RoleGame roleGame) { this.roleGameDAO.save(roleGame); }
+	public void saveRoleGame(@RequestBody RoleGame roleGame) {
+		this.roleGameDAO.save(roleGame);
+	}
 
 	/**
 	 * Get rolegame by ID
@@ -143,7 +167,9 @@ public class ServiceManager {
 	 * @param id
 	 * @return
 	 */
-	public java.util.Optional<RoleGame> getRoleGameByID(@PathVariable("id") Integer id) { return this.roleGameDAO.findById(id); }
+	public java.util.Optional<RoleGame> getRoleGameByID(@PathVariable("id") Integer id) {
+		return this.roleGameDAO.findById(id);
+	}
 
 	/**
 	 * Update rolegame by ID
@@ -151,12 +177,17 @@ public class ServiceManager {
 	 * @param id
 	 * @return
 	 */
-	public java.util.List<RoleGame> updateRoleGameById(@RequestParam @PathVariable("id") Integer id) { return this.roleGameDAO.findAll(); }
+	public void updateRoleGameById(@RequestParam @PathVariable("id") Integer id) {
+		this.roleGameDAO.updateRoleGameById(id);
+
+	}
 
 	/**
 	 * Get all rolegame
 	 * 
 	 * @return
 	 */
-	public java.util.List<RoleGame> getAllRoleGame() { return this.roleGameDAO.findAll(); }
+	public java.util.List<RoleGame> getAllRoleGame() {
+		return this.roleGameDAO.findAll();
+	}
 }

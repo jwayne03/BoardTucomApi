@@ -16,10 +16,15 @@ public class RoleGame {
 	@Column
 	private int level;
 
+	/**
+	 * DEFAULT CONSTRUCTOR
+	 */
 	public RoleGame() {
 
 	}
 
+	// GETTERS & SETTERS
+	
 	public int getId() {
 		return id;
 	}
