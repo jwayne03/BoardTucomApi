@@ -52,9 +52,9 @@ public class CardGameApi {
 	 * @param id
 	 * @return
 	 */
-	@PutMapping("/{id}")
-	public java.util.List<CardGame> updateCardGameById(@RequestParam @PathVariable("id") Integer id) {
-		return this.generalServices.updateCardGameById(id);
+	@GetMapping("/seasson/{seasson}")
+	public java.util.List<CardGame> getCardGameBySeasson(@PathVariable("seasson") Integer seasson) {
+		return this.generalServices.getCardGameBySeassonCardGames(seasson);
 	}
 
 	/**

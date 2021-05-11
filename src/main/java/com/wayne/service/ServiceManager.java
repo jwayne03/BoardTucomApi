@@ -1,5 +1,6 @@
 package com.wayne.service;
 
+import java.util.ArrayList;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -57,7 +58,7 @@ public class ServiceManager {
 	 * 
 	 * @param id with @PathVariable to request to the user
 	 */
-	public void updateBoardGameById(@RequestParam @PathVariable("id") Integer id, String type, String description) {
+	public void updateBoardGameById(Integer id, String type, String description) {
 		this.boardGameDAO.updateBoardGameById(type, description, id);
 	}
 
@@ -66,7 +67,7 @@ public class ServiceManager {
 	 * 
 	 * @param id
 	 */
-	public void removeById(@PathVariable("id") Integer id) {
+	public void removeById(Integer id) {
 		this.boardGameDAO.deleteById(id);
 	}
 
@@ -77,7 +78,7 @@ public class ServiceManager {
 	 * 
 	 * @param cardGame
 	 */
-	public void saveCardGame(@RequestBody CardGame cardGame) {
+	public void saveCardGame(CardGame cardGame) {
 		this.cardGameDAO.save(cardGame);
 	}
 
@@ -87,7 +88,7 @@ public class ServiceManager {
 	 * @param id
 	 * @return
 	 */
-	public java.util.Optional<CardGame> getCardGameByID(@PathVariable("id") Integer id) {
+	public Optional<CardGame> getCardGameByID(Integer id) {
 		return this.cardGameDAO.findById(id);
 	}
 
@@ -97,8 +98,8 @@ public class ServiceManager {
 	 * @param id
 	 * @return
 	 */
-	public java.util.List<CardGame> updateCardGameById(@RequestParam @PathVariable("id") Integer id) {
-		return this.cardGameDAO.selectCardGameBySeason(id);
+	public java.util.List<CardGame> getCardGameBySeassonCardGames(Integer seasson) {
+		return this.cardGameDAO.findCardGameBySeasson(seasson);
 	}
 
 	/**
@@ -117,7 +118,7 @@ public class ServiceManager {
 	 * 
 	 * @param merchandising
 	 */
-	public void saveMerchandising(@RequestBody Merchandising merchandising) {
+	public void saveMerchandising(Merchandising merchandising) {
 		this.merchandisingDAO.save(merchandising);
 	}
 
@@ -127,7 +128,7 @@ public class ServiceManager {
 	 * @param id
 	 * @return
 	 */
-	public java.util.Optional<Merchandising> getMerchandisingByID(@PathVariable("id") Integer id) {
+	public java.util.Optional<Merchandising> getMerchandisingByID(Integer id) {
 		return this.merchandisingDAO.findById(id);
 	}
 
@@ -137,8 +138,8 @@ public class ServiceManager {
 	 * @param id
 	 * @return
 	 */
-	public java.util.List<Merchandising> updateMerchandisingById(@RequestParam @PathVariable("id") Integer id) {
-		return this.merchandisingDAO.selectMerchandisingByType(id);
+	public ArrayList<Merchandising> getMerchandisingByType(String type) {
+		return this.merchandisingDAO.findByType(type);
 	}
 
 	/**
@@ -157,7 +158,7 @@ public class ServiceManager {
 	 * 
 	 * @param roleGame
 	 */
-	public void saveRoleGame(@RequestBody RoleGame roleGame) {
+	public void saveRoleGame(RoleGame roleGame) {
 		this.roleGameDAO.save(roleGame);
 	}
 
@@ -167,7 +168,7 @@ public class ServiceManager {
 	 * @param id
 	 * @return
 	 */
-	public java.util.Optional<RoleGame> getRoleGameByID(@PathVariable("id") Integer id) {
+	public java.util.Optional<RoleGame> getRoleGameByID(Integer id) {
 		return this.roleGameDAO.findById(id);
 	}
 
@@ -177,8 +178,8 @@ public class ServiceManager {
 	 * @param id
 	 * @return
 	 */
-	public void updateRoleGameById(@RequestParam @PathVariable("id") Integer id) {
-		this.roleGameDAO.updateRoleGameById(id);
+	public void updateRoleGameById(Integer id, String editorial) {
+		this.roleGameDAO.updateRoleGameById(id, editorial);
 
 	}
 

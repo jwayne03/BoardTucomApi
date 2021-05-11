@@ -50,8 +50,8 @@ public class RoleGameApi {
 	 * @return
 	 */
 	@PutMapping("/{id}")
-	public void updateRoleGameById(@RequestParam @PathVariable("id") Integer id) {
-		this.generalServices.updateRoleGameById(id);
+	public void updateRoleGameById(@PathVariable("id") Integer id, @RequestParam String editorial) {
+		this.generalServices.updateRoleGameById(id, editorial);
 	}
 
 	/**

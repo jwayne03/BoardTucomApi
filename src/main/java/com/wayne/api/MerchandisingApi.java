@@ -1,5 +1,8 @@
 package com.wayne.api;
 
+import java.util.ArrayList;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -52,9 +55,9 @@ public class MerchandisingApi {
 	 * @param id
 	 * @return
 	 */
-	@PutMapping("")
-	public java.util.List<Merchandising> updateMerchandisingById(@RequestParam @PathVariable("id") Integer id) {
-		return this.generalServices.updateMerchandisingById(id);
+	@GetMapping("/type/{type}")
+	public ArrayList<Merchandising> getMerchandisingByType(@PathVariable("type") String type) {
+		return this.generalServices.getMerchandisingByType(type);
 	}
 
 	/**

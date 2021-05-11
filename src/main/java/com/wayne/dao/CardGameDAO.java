@@ -21,6 +21,6 @@ public interface CardGameDAO extends JpaRepository<CardGame, Integer> {
 	 * @param seasson
 	 * @return
 	 */
-	@Query(value = "select * from card_game where seasson=:seasson", nativeQuery = true)
-	public ArrayList<CardGame> selectCardGameBySeason(@Param("seasson") int seasson);
+	//@Query(value = "select * from card_game where seasson=:seasson", nativeQuery = true)
+	public ArrayList<CardGame> findCardGameBySeasson(int seasson);
 }

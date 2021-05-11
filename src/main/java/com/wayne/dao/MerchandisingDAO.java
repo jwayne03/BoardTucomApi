@@ -24,6 +24,7 @@ public interface MerchandisingDAO extends JpaRepository<Merchandising, Integer> 
 	 * @param id
 	 * @return
 	 */
-	@Query(value = "select * from merchandising where type=:type", nativeQuery = true)
-	public ArrayList<Merchandising> selectMerchandisingByType(@Param("type") Integer id);
+	// @Query(value = "select * from merchandising where type=:type", nativeQuery =
+	// true)
+	public ArrayList<Merchandising> findByType(String type);
 }

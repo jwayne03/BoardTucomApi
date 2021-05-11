@@ -1,6 +1,9 @@
 package com.wayne.dao;
 
+import javax.transaction.Transactional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -22,6 +25,8 @@ public interface BoardGameDAO extends JpaRepository<BoardGame, Integer> {
 	 * @param description String
 	 * @param id          int
 	 */
+	@Transactional
+	@Modifying
 	@Query(value = "update board_game set type=:type, description=:description where id=:id", nativeQuery = true)
 	public void updateBoardGameById(@Param("type") String type, @Param("description") String description,
 			@Param("id") int id);
